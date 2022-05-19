@@ -11,4 +11,7 @@ etiqueta_lectura.place(x=20, y=20)
 caja_lectura = ttk.Entry()
 caja_lectura.place(x=110, y=20, width=130)
 
+boton_lectura = ttk.Button(text="Calculo")
+boton_lectura.place(x=20, y=60)
+
 ventana.mainloop()

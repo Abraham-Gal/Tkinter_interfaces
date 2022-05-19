@@ -47,4 +47,9 @@ Para la realización de cajas de texto de manera similar ya que se declara una v
     caja_lectura = ttk.Entry()
     caja_lectura.place(x=110, y=20, width=130) 
 ```
+# Button 
 
+``` 
+    boton_lectura = ttk.Button(text="Calculo")
+    boton_lectura.place(x=20, y=60)  
+```
