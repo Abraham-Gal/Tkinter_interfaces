@@ -2,7 +2,7 @@
 Interfaces in tkinter for practice and do things about grafics
 
 
-# Declaración de ventana 
+# Creación de ventana 
 
 Comenzando es necesario importar los módulos correspondientes, los cuales son tkinter (abrebiando con tk) el otro módulo es ttk el cual se encuentra en tkiter  
 
@@ -30,3 +30,21 @@ creada la ventana con los métodos, es posible configurar las propiedades de la 
     ventana.title("Aca la primera muestra")
     ventana.config(width=400, height=300)
 ```
+
+# Etiquetas 
+
+Para creación de etiquetas sin orientado a objetos.
+
+```
+    etiqueta_lectura = ttk.Label(text="Lecutra nativa: ")
+    etiqueta_lectura.place(x=20, y=20)
+```
+# Caja de texto
+
+Para la realización de cajas de texto de manera similar ya que se declara una variable con el método ttk.entry.
+
+```
+    caja_lectura = ttk.Entry()
+    caja_lectura.place(x=110, y=20, width=130) 
+```
+
