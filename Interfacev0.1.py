@@ -14,5 +14,6 @@ class Aplication(ttk.Frame):
 ventana = tk.Tk()
 ventana.title("Interfaz v1")
 ventana.config(width=1024,height=600)
+ventana.iconbitmap("icon.ico")
 app = Aplication(ventana)
 ventana.mainloop()

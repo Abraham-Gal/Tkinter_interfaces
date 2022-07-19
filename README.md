@@ -53,3 +53,14 @@ Para la realización de cajas de texto de manera similar ya que se declara una v
     boton_lectura = ttk.Button(text="Calculo")
     boton_lectura.place(x=20, y=60)  
 ```
+
+# Para cambiar icono de ventana  
+
+La imagen deve de estar en formato .ico
+la pagina que encontr de iconos:
+https://icon-icons.com/es/
+
+
+``` 
+    ventana.iconbitmap("icon.ico")  
+```
