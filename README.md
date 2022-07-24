@@ -64,3 +64,9 @@ https://icon-icons.com/es/
 ``` 
     ventana.iconbitmap("icon.ico")  
 ```
+
+Método alternativo (para linux): https://www.delftstack.com/es/howto/python-tkinter/how-to-set-window-icon-in-tkinter/
+
+``` 
+    ventana.tk.call('wm','iconphoto',ventana._w,tk.PhotoImage(file='Interface/icon_p.png')) 
+```
