@@ -1,6 +1,32 @@
 import tkinter as tk 
 from tkinter import Frame, ttk
+from tkinter.tix import NoteBook
 from turtle import width
+
+class InicioFrame(ttk.Frame):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.label = ttk.Label(self)
+        self.label["text"] = ("Prueba de etiqueta en inicio")
+        self.label.pack()
+    
+class Nodo1Frame(ttk.Frame):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.label = ttk.Label(self)
+        self.label["text"] = ("Prueba de etiqueta en nodo 1")
+        self.label.pack()
+
+class Nodo2Frame(ttk.Frame):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.label = ttk.Label(self)
+        self.label["text"] = ("Prueba de etiqueta en nodo 2")
+        self.label.pack()
+
 
 class Aplication(ttk.Frame):
 
@@ -14,22 +40,22 @@ class Aplication(ttk.Frame):
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(pady=10, expand=True)
 
-        self.frame1 = Frame(self.notebook, width=1024, height=550)
-        self.frame2 = Frame(self.notebook, width=1024, height=550)
-        self.frame3 = Frame(self.notebook, width=1024, height=550)
-
-        self.frame1.pack(fill='both', expand=True)
-        self.frame2.pack(fill='both', expand=True)
-        self.frame3.pack(fill='both', expand=True)
+        #self.FrameInicio = Frame(self.notebook, width=1024, height=550)
+        #self.FrameInicio.pack(fill='both', expand=True)
         
+        self.inicioframe = InicioFrame(self.notebook, width=1024, height=550)
+        self.inicioframe.pack(fill='both', expand=True)
+        
+        self.nodo1frame = Nodo1Frame(self.notebook)
+        self.nodo1frame.pack(fill='both', expand=True)
+        
+        self.nodo2frame = Nodo2Frame(self.notebook)
+        self.nodo2frame.pack(fill='both', expand=True)
 
-        #self.home_label = ttk.Label(self.notebook, text="Ventana de inicio man")
-        #self.nodo1_label = ttk.Label(self.notebook, text="Ventana de Nodo 1 man")
-        #self.nodo2_label = ttk.Label(self.notebook, text="Ventana de Nodo 2 man")
 
-        self.notebook.add(self.frame1, text="Inicio", padding=10)
-        self.notebook.add(self.frame2, text="Nodo 1", padding=10)
-        self.notebook.add(self.frame3, text="Nodo 2", padding=10)
+        self.notebook.add(self.inicioframe, text="Inicio", padding=10)
+        self.notebook.add(self.nodo1frame, text="Nodo 1", padding=10)
+        self.notebook.add(self.nodo2frame, text="Nodo 2", padding=10)
         
         self.pack()
 
