@@ -6,6 +6,7 @@ from Nodo1_Interfaz import *
 from Nodo2_interfaz import *
 from Conf_interfaz import *
 from Info_interfaz import *
+from Historial_interfaz import *
 
 
 class Inicio(tk.Tk):
@@ -16,9 +17,7 @@ class Inicio(tk.Tk):
         self.config(width=1024, height=530,bg='#FFFFFF')
         self.geometry("1024x530")
         self.title("Inicio")
-        self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/inicio_b.png'))
-        
-        
+        self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/inicio_b.png'))  
 
         #-----------------------------------  Fames         ----------------------
         self.info_frame = Frame(self)
@@ -41,12 +40,14 @@ class Inicio(tk.Tk):
         #--------------------------------------------------------------------------
 
         #----------------------------------- Objetos de info ----------------------
-        self.boton_Config = ttk.Button(self.info_frame, text="Configuracion", command=self.abrir_COnfiguracion)
+        self.boton_Config = ttk.Button(self.info_frame, text="Configuracion", command=self.abrir_Configuracion)
         self.boton_Config.place(x=100, y=100)
 
         self.boton_Info = ttk.Button(self.info_frame, text="Información", command=self.abrir_info)
         self.boton_Info.place(x=100, y=150)
 
+        self.boton_Historial = ttk.Button(self.info_frame, text="Historial", command=self.abrir_Historial)
+        self.boton_Historial.place(x=100,y=200)
         #self.etiqueta_titulo1 = tk.Label(self.info_frame, text="Dispositivo de control inteligente para",bg="#FFFFFF", font=("Times", 20))
         #self.etiqueta_titulo1.place(x=33,y=10)
         
@@ -74,11 +75,14 @@ class Inicio(tk.Tk):
     def abrir_Nodo2(self):
         self.ventana_Nodo2 = Nodo2()
 
-    def abrir_COnfiguracion(self):
+    def abrir_Configuracion(self):
         self.ventana_Configuracion = Configuracion()
     
     def abrir_info(self):
         self.ventana_info = Informacion()
+    
+    def abrir_Historial(self):
+        self.ventana_historial = Historial()
     #-----------------------------------------------------------------------------------
 
 ventana_principal = Inicio()
