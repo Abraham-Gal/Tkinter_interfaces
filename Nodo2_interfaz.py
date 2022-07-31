@@ -5,7 +5,8 @@ class Nodo2(tk.Toplevel):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.config(width=1024, height=570)
+        self.config(width=1024, height=530)
+        self.geometry("1024x530")
         self.title("Nodo de produccion 2")
         self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/n1_2.png'))
 
