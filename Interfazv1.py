@@ -1,6 +1,6 @@
 from cgi import test
 import tkinter as tk
-from tkinter import Frame, ttk
+from tkinter import Frame, Label, PhotoImage, ttk
 from tkinter import Canvas
 from Nodo1_Interfaz import *
 from Nodo2_interfaz import *
@@ -14,7 +14,7 @@ class Inicio(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self.config(width=1024, height=530,bg='#FFFFFF')
+        self.config(width=1024, height=530,bg='#96E087')
         self.geometry("1024x530")
         self.title("Inicio")
         self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/inicio_b.png'))  
@@ -22,24 +22,31 @@ class Inicio(tk.Tk):
         #-----------------------------------  Fames         ----------------------
         self.info_frame = Frame(self)
         self.info_frame.pack(side="left",pady="10",padx="10")
-        self.info_frame.config(bg="#FFFFFF",width="495", height="550",relief="solid", bd=3)
+        self.info_frame.config(bg="#FFFFFF",width="495", height="550",relief="flat", bd=3)
 
         self.nodo1_frame = Frame(self)
         self.nodo1_frame.pack(anchor="se", pady="10", padx="10")
-        self.nodo1_frame.config(bg="#FFFFFF", width="510", height="247",relief="solid", bd=3)
+        self.nodo1_frame.config(bg="#DDF9D7", width="510", height="247",relief="flat", bd=3)
 
         self.nodo2_frame = Frame(self)
         self.nodo2_frame.pack(anchor="sw", pady="10", padx="10")
-        self.nodo2_frame.config(bg="#FFFFFF", width="510", height="247",relief="solid", bd=3)
+        self.nodo2_frame.config(bg="#DDF9D7", width="510", height="247",relief="flat", bd=3)
         #--------------------------------------------------------------------------
 
+        #------------------------------------ Recursos   ---------------------------
+        self.png_agua=PhotoImage(file="interface/agua_e.png")
+        #---------------------------------------------------------------------------
+        
         #------------------------------------ Canvas obj --------------------------
-        canvas = Canvas(self.info_frame)
-        canvas.config(bg="#FFFFFF",width="495", height="550")
-        canvas.pack(side="left")
+        #canvas = Canvas(self.info_frame)
+        #canvas.config(bg="#FFFFFF",width="495", height="550")
+        #canvas.pack(side="left",)
         #--------------------------------------------------------------------------
 
         #----------------------------------- Objetos de info ----------------------
+        self.img_agua = Label(self.info_frame, image=self.png_agua, relief="flat", border=0)
+        self.img_agua.place(x=0, y=0)
+
         self.boton_Config = ttk.Button(self.info_frame, text="Configuracion", command=self.abrir_Configuracion)
         self.boton_Config.place(x=100, y=100)
 
