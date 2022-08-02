@@ -1,6 +1,6 @@
 from cgi import test
 import tkinter as tk
-from tkinter import Frame, Label, PhotoImage, ttk
+from tkinter import LEFT, Frame, Label, PhotoImage, ttk
 from tkinter import Canvas
 from Nodo1_Interfaz import *
 from Nodo2_interfaz import *
@@ -16,7 +16,7 @@ class Inicio(tk.Tk):
         super().__init__(*args, **kwargs)
         
         self.config(width=1024, height=530,bg=Colores['fondo'])
-        self.geometry("1024x530")
+        self.geometry(Size['pantalla'])
         self.title("Inicio")
         self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/inicio_b.png'))  
 
@@ -31,11 +31,15 @@ class Inicio(tk.Tk):
 
         self.nodo2_frame = Frame(self)
         self.nodo2_frame.pack(anchor="sw", pady="10", padx="10")
-        self.nodo2_frame.config(bg="#DDF9D7", width="510", height="247",relief="flat", bd=3)
+        self.nodo2_frame.config(bg=Colores['fondo_n1'], width="510", height="247",relief="flat", bd=3)
         #--------------------------------------------------------------------------
 
         #------------------------------------ Recursos   ---------------------------
         self.png_agua=PhotoImage(file="Interface/agua_e.png")
+        self.png_luz=PhotoImage(file="Interface/luz_e.png")
+        self.png_conf=PhotoImage(file="Interface/btn_conf.png")
+        self.png_his=PhotoImage(file="Interface/btn_his.png")
+        self.png_inf=PhotoImage(file="Interface/btn_info.png")
         #---------------------------------------------------------------------------
         
         #------------------------------------ Canvas obj --------------------------
@@ -61,32 +65,55 @@ class Inicio(tk.Tk):
         canvas.create_rectangle(30,120,465,115, fill="#96E087", outline="#96E087")
 
         #========> Luz ambiental
-
+        self.img_luz = Label(self.info_frame, image=self.png_luz, relief="flat", border=0)
+        self.img_luz.place(x=50, y=175)
         
+        self.label_lambiental = Label(self.info_frame, text="Luz ambiental", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",24))
+        self.label_lambiental.place(x=170, y=165)
 
-        self.boton_Config = ttk.Button(self.info_frame, text="Configuracion", command=self.abrir_Configuracion)
-        self.boton_Config.place(x=100, y=300)
+        self.label_laN1 = Label(self.info_frame, text="Nodo 1:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
+        self.label_laN1.place(x=130, y=235)
 
-        self.boton_Info = ttk.Button(self.info_frame, text="Información", command=self.abrir_info)
-        self.boton_Info.place(x=100, y=330)
+        self.label_laN1D = Label(self.info_frame, text=getUlimoDLuz(1),relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
+        self.label_laN1D.place(x=210, y=235)
+    
+        self.label_laN2 = Label(self.info_frame, text="Nodo 2:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
+        self.label_laN2.place(x=310, y=235)
 
-        self.boton_Historial = ttk.Button(self.info_frame, text="Historial", command=self.abrir_Historial)
-        self.boton_Historial.place(x=100,y=360)
-        #self.etiqueta_titulo1 = tk.Label(self.info_frame, text="Dispositivo de control inteligente para",bg="#FFFFFF", font=("Times", 20))
-        #self.etiqueta_titulo1.place(x=33,y=10)
+        self.label_laN2D = Label(self.info_frame, text=getUlimoDLuz(2),relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
+        self.label_laN2D.place(x=390, y=235)
+
+        canvas.create_rectangle(30,300,465,295, fill="#96E087", outline="#96E087")
+
+        #========> Modo
+
+        self.label_modo = Label(self.info_frame, text="Modo de operación:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",16))
+        self.label_modo.place(x=60, y=330)
+
+        self.label_modo = Label(self.info_frame, text=getModoFuncion(), relief="flat", border=0, bg="#FFFFFF", font=("Verdana",16))
+        self.label_modo.place(x=290, y=330)
+
+        canvas.create_rectangle(30,400,465,395, fill="#96E087", outline="#96E087")
+
+        #========> Botonera
+
+        self.boton_Config = ttk.Button(self.info_frame, text="Configuracion", image=self.png_conf, compound=LEFT, command=self.abrir_Configuracion)
+        self.boton_Config.place(x=30, y=425)
+
+        self.boton_Info = ttk.Button(self.info_frame, text="Información", image=self.png_inf, compound=LEFT, command=self.abrir_info)
+        self.boton_Info.place(x=190, y=425)
+
+        self.boton_Historial = ttk.Button(self.info_frame, text="  Historial", image=self.png_his, compound=LEFT, command=self.abrir_Historial)
+        self.boton_Historial.place(x=340,y=425)
         
-        #self.etiqueta_titulo2 = tk.Label(self.info_frame, text="microcultivos",bg="#FFFFFF", font=("Times", 20))
-        #self.etiqueta_titulo2.place(x=33,y=60)
-
+        #-----------------------------------------------------------------------------
         
-        #-------------------------------------------------------------------------
-        
-        #----------------------------------- Objetos de nodo1 ----------------------
+        #----------------------------------- Objetos de nodo1 ------------------------
         self.boton_Nodo1 = ttk.Button(self.nodo1_frame, text="Nodo 1", command=self.abrir_Nodo1)
         self.boton_Nodo1.place(x=100, y=100)
-        #-------------------------------------------------------------------------
+        #----------------------------------------------------------------------------
 
-        #----------------------------------- Objetos de nodo2 ----------------------
+        #----------------------------------- Objetos de nodo2 -----------------------
         self.boton_Nodo2 = ttk.Button(self.nodo2_frame, text="Nodo 2", command=self.abrir_Nodo2)
         self.boton_Nodo2.place(x=100, y=100)
         #-------------------------------------------------------------------------
