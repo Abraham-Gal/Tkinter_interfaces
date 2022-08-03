@@ -40,48 +40,53 @@ class Inicio(tk.Tk):
         self.png_conf=PhotoImage(file="Interface/btn_conf.png")
         self.png_his=PhotoImage(file="Interface/btn_his.png")
         self.png_inf=PhotoImage(file="Interface/btn_info.png")
+        self.png_nodo=PhotoImage(file="Interface/btn_nodo.png")
         #---------------------------------------------------------------------------
         
         #------------------------------------ Canvas obj --------------------------
         canvas = Canvas(self.info_frame)
         canvas.config(bg="#FFFFFF",width="495", height="550")
         canvas.pack(side="left")
+
+        canvas_n1 = Canvas(self.nodo1_frame)
+        canvas_n1.config(bg=Colores['fondo_n1'],width="510", height="247")
+        canvas_n1.pack(side="left")
         #--------------------------------------------------------------------------
 
         #----------------------------------- Objetos de info ----------------------
         #========> Agua
         self.img_agua = Label(self.info_frame, image=self.png_agua, relief="flat", border=0)
-        self.img_agua.place(x=100, y=20)
+        self.img_agua.place(x=370, y=20)
 
         self.label_liquido = Label(self.info_frame, text="Liquido", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",24))
-        self.label_liquido.place(x=220, y=20)
+        self.label_liquido.place(x=30, y=20)
 
         self.label_estado = Label(self.info_frame, text="Estado:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_estado.place(x=220, y=70)
+        self.label_estado.place(x=30, y=70)
 
         self.label_DatoL = Label(self.info_frame, text=Agua['estado'], relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_DatoL.place(x=295, y=70)
+        self.label_DatoL.place(x=105, y=70)
 
         canvas.create_rectangle(30,120,465,115, fill="#96E087", outline="#96E087")
 
         #========> Luz ambiental
         self.img_luz = Label(self.info_frame, image=self.png_luz, relief="flat", border=0)
-        self.img_luz.place(x=50, y=175)
+        self.img_luz.place(x=370, y=175)
         
         self.label_lambiental = Label(self.info_frame, text="Luz ambiental", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",24))
-        self.label_lambiental.place(x=170, y=165)
+        self.label_lambiental.place(x=30, y=155)
 
         self.label_laN1 = Label(self.info_frame, text="Nodo 1:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_laN1.place(x=130, y=235)
+        self.label_laN1.place(x=30, y=205)
 
         self.label_laN1D = Label(self.info_frame, text=getUlimoDLuz(1),relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_laN1D.place(x=210, y=235)
+        self.label_laN1D.place(x=120, y=205)
     
         self.label_laN2 = Label(self.info_frame, text="Nodo 2:", relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_laN2.place(x=310, y=235)
+        self.label_laN2.place(x=30, y=235)
 
         self.label_laN2D = Label(self.info_frame, text=getUlimoDLuz(2),relief="flat", border=0, bg="#FFFFFF", font=("Verdana",14))
-        self.label_laN2D.place(x=390, y=235)
+        self.label_laN2D.place(x=120, y=235)
 
         canvas.create_rectangle(30,300,465,295, fill="#96E087", outline="#96E087")
 
@@ -109,8 +114,13 @@ class Inicio(tk.Tk):
         #-----------------------------------------------------------------------------
         
         #----------------------------------- Objetos de nodo1 ------------------------
-        self.boton_Nodo1 = ttk.Button(self.nodo1_frame, text="Nodo 1", command=self.abrir_Nodo1)
-        self.boton_Nodo1.place(x=100, y=100)
+        self.label_NP1 = Label(self.nodo1_frame, text="Nodo de producción 1", relief="flat", border=0, bg=Colores['fondo_n1'], font=("Verdana",15))
+        self.label_NP1.place(x=125, y=10)
+
+        canvas_n1.create_rectangle(30,50,445,45, fill="#96E087", outline="#96E087")
+
+        self.boton_Nodo1 = tk.Button(self.nodo1_frame, text="  Nodo 1   ", image=self.png_nodo, compound=LEFT, command=self.abrir_Nodo1 , bg=Colores['btn_nodo'], activebackground=Colores['blanco'])
+        self.boton_Nodo1.place(x=370, y=200)
         #----------------------------------------------------------------------------
 
         #----------------------------------- Objetos de nodo2 -----------------------
