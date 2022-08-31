@@ -1,12 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
+from Dicc_variables import *
 
 class Configuracion(tk.Toplevel):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.config(width=1024, height=570)
-        self.geometry("1024x530")
+        self.config(bg=Colores['blanco'])
+        self.geometry(Size['pantalla'])
         self.title("Configuración de cultivos")
         self.tk.call('wm','iconphoto',self._w,tk.PhotoImage(file='Interface/conf.png'))
 
