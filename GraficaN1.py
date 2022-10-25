@@ -17,11 +17,11 @@ class GrN1(tk.Toplevel):
 
         #------------------------------ Canvas OBJ -----------------------------------
         self.canvasG1 = Canvas(self)
-        self.canvasG1.config(bg=Colores['fondo'],width="1024", height="250")
+        self.canvasG1.config(bg=Colores['fondo'],width="1024", height="530")
         self.canvasG1.pack(side="top")
         #-----------------------------------------------------------------------------
         #----------------------------- Gráfica ---------------------------------------
-        self.fig = Figure(figsize = (10.2, 2.5), dpi = 100)
+        self.fig = Figure(figsize = (10.2, 5), dpi = 100)
         self.plot1 = self.fig.add_subplot(111)
         self.plot1.plot(data_n1)
         
@@ -39,7 +39,7 @@ class GrN1(tk.Toplevel):
         #-----------------------------------------------------------------------------
 
         self.boton_cerrar = ttk.Button(self, text="Nodo 1", command=self.destroy)
-        self.boton_cerrar.place(x=75, y=75)
+        self.boton_cerrar.place(x=800, y=502)
         
         self.focus()
         self.grab_set()

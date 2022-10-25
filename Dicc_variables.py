@@ -7,12 +7,13 @@ Colores = {'fondo':'#96E087','blanco':'#FFFFFF', 'fondo_n1':'#DDF9D7', 'btn_nodo
 Agua = {'estado':"Sabe we"}
 Luz = {'lambientalN1':"last_D", 'lambientalN2':"last_D2"}
 Config = {'modo':"Automático"}
-Nodo1_LD = {'ha':"1",'hc':"2",'ta':"3",'ls':"4",'uhr':"13:00",'ucl':"15:00",'hl':"6",'dp':"7"}
+Nodo1_LD = {'ha':"1",'hc':"2",'ta':"3",'ls':"4",'uhr':"13:00",'ucl':"15:00",'hl':"6",'dp':"7",'hc1':"8",'hc2':"9",'hc3':"10",'lc1':"11",'lc2':"12",'lc3':"13", 'cultivo':"Frijoles"}
 Nodo2_LD = {'ha':"1",'hc':"2",'ta':"3",'ls':"4",'uhr':"13:00",'ucl':"15:00",'hl':"6",'dp':"7"}
-Op_graficas = ["Humedad Ambiental", "Temperatura","Humedad de cultivo", "Humedad De charola 1", "Humedad De charola 2", "Humedad de charola 3", "Lud del cultivo", "Luz Charola 1", "Luz Charola 2", "Luz charola 3"]
+Op_graficas = ["Humedad Ambiental", "Temperatura","Humedad de cultivo", "Humedad de charola 1", "Humedad de charola 2", "Humedad de charola 3", "Luz del cultivo", "Luz charola 1", "Luz charola 2", "Luz charola 3"]
 Intervalo_g = ["Todos", "Ultimo dia", "Ultimos dos dias", "Utimos tres dias"]
-Conf_gr_N1 = {'xlb': "n/a",'ylb': "n/a", 'ti': "n/a" }
-Conf_gr_N2 = {'xlb': "n/a",'ylb': "n/a", 'ti': "n/a" }
+Int_g1 = "Todos"
+Conf_gr_N1 = {'xlb': "Numero de datos",'ylb': "Humedad del ambiente %", 'ti': "Humedad ambietnal"}
+Conf_gr_N2 = {'xlb': "Numero de datos",'ylb': "Humedad del ambiente %", 'ti': "Humedad ambietnal"}
 data_n1 = [i**2 for i in range(101)] 
 data_n2 = [i+2 for i in range(101)]
 
@@ -108,14 +109,54 @@ def getNodo2_LD(elemento):
         return Nodo2_LD['dp']
 
 def set_Graf_N1(event):       
-        if(event == "Humedad Ambiental"):
-            Conf_gr_N1['xlb'] = "Humedad el ambiente (%)"
-            Conf_gr_N1['ylb'] = "Numero de datos"
-            Conf_gr_N1['ti'] = "Humedad Ambiental"
+    if(event == "Humedad Ambiental"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Humedad el ambiente (%)"
+        Conf_gr_N1['ti'] = "Humedad Ambiental"
+    if(event == "Temperatura"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Temperatura (C)"
+        Conf_gr_N1['ti'] = "Temperatura"
+    if(event == "Humedad de cultivo"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Humedad de cultivo (niveles)"
+        Conf_gr_N1['ti'] = "Humedad de Cultivo"
+    if(event == "Humedad de charola 1"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Humedad de charola 1 (niveles)"
+        Conf_gr_N1['ti'] = "Humedad de charola 1"
+    if(event == "Humedad de charola 2"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Humedad de charola 2 (niveles)"
+        Conf_gr_N1['ti'] = "Humedad de charola 2"
+    if(event == "Humedad de charola 3"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Humedad de charola 3 (niveles)"
+        Conf_gr_N1['ti'] = "Humedad de charola 3"
+    if(event == "Luz del cultivo"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Luz de cultivo (niveles)"
+        Conf_gr_N1['ti'] = "Luz del cultivo"
+    if(event == "Luz charola 1"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Luz de charola 1 (niveles)"
+        Conf_gr_N1['ti'] = "Luz de charola 1"
+    if(event == "Luz charola 2"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Luz de charola 2 (niveles)"
+        Conf_gr_N1['ti'] = "Luz de charola 2"
+    if(event == "Luz charola 3"):
+        Conf_gr_N1['xlb'] = "Numero de datos"
+        Conf_gr_N1['ylb'] = "Luz de charola 3 (niveles)"
+        Conf_gr_N1['ti'] = "Luz de charola 3"
 
-        if(event == "Temperatura"):
-            Conf_gr_N1['xlb'] = "Temperatura (C)"
-            Conf_gr_N1['ylb'] = "Numero de datos"
-            Conf_gr_N1['ti'] = "Temperatura"
-
-#print (Agua['estado'])
+def set_Graf_int_N1(event):
+    if(event == "Todos"):
+        Int_g1 = "Todos"
+        print("Todos")
+    if(event == "Ultimo dia"):
+        Int_g1 = "Ultimo dia"
+    if(event == "Ultimos dos dias"):
+        Int_g1 = "Ultimos dos dias"
+    if(event == "Ultimos tres dias"):
+        Int_g1 = "Ultimos tres dias"
